@@ -1,0 +1,4 @@
+rootProject.name = 'geekbang-java-job'
+include 'week01'
+include 'demo'
+

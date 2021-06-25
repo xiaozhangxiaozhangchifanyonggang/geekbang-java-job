@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+
+subprojects {
+    apply plugin: 'java'
+
+    dependencies {
+
+        testRuntimeClasspath 'junit:junit:4.13.2'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    //闭包
+    def createDir = {
+        path ->
+            File dir = new File(path);
+            if (!dir.exists()) {
+                dir.mkdirs()
+            }
+    }
+    //自定义任务
+    task makeJavaDir() {
+        def paths = ['src/main/java', 'src/main/resources', 'src/test/java', 'src/test/resources'];
+        //在动作列表前插入动作
+        doFirst {
+            //遍历目录结构，进行创建对应目录
+            paths.forEach(createDir)
+        }
+    }
+    task makeWebDir() {
+        //申明当前任务依赖指定任务
+        dependsOn 'makeJavaDir'
+        def paths = ['src/main/webapp', 'src/test/webapp']
+        doLast {
+            paths.forEach(createDir)
+        }
+    }
+}

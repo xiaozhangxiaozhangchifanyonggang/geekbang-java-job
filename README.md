@@ -7,14 +7,13 @@
 
 **项目结构** 
 ```
-geekbang-java-job
+geekbang-java-job 极客时间Java进阶训练营
 ├─demo 示例代码
-│  ├─modeling 建模模块
-|  |   ├─fault.logic.api 故障分析规则模块api
-|  |   └─fault.tree.api 故障树规则模块api
+│  ├─bytecode 字节码
+|  └─classloader 类加载  
+|  
 │ 
 ├─week01 第一周作业
-│  ├─modeling 建模模块
-|  |   ├─fault.logic 故障分析规则模块
-|  |   └─fault.tree 故障树规则模块
+│  ├─choose 选做
+|  └─must 必做 
 ```
